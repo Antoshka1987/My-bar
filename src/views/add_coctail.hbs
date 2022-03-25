@@ -1,0 +1,56 @@
+<script defer src="/js/add_coctail.js"></script>
+
+<form name="formBlock" id="add_instance">
+
+  <div class="mb-3">
+    <label class="form-label">name</label>
+    <input name="name" class="form-control">
+  </div>
+
+
+  <div class="mb-3">
+    <label class="form-label">method_id</label>
+    <select name="method_id" id="disabledSelect" class="form-select">
+      {{#each method}}
+      <option value={{id}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div id="filter">
+    <div id="filter_selection">
+      <select name="country" id="disabledSelect" class="form-select">
+        {{#each country}}
+        <option value={{id}}>{{name}}</option>
+        {{/each}}
+      </select>
+      <select name="type_of_alcohol" id="disabledSelect" class="form-select">
+        {{#each type_of_alcohol}}
+        <option value={{id}}>{{name}}</option>
+        {{/each}}
+      </select>
+      <select name="company" id="disabledSelect" class="form-select">
+        {{#each company}}
+        <option value={{id}}>{{title}}</option>
+        {{/each}}
+      </select>
+      <button data-fil="fil" type="click" class="btn btn-primary">Submit</button>
+    </div>
+    <div id="bar">
+      {{#each alcohol}}
+      <div class="card">
+        <div value={{id}}>{{name}}</div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      {{/each}}
+    </div>
+
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">info</label>
+    <input name="info" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

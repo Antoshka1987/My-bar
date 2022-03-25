@@ -1,0 +1,29 @@
+<script defer src="/js/add_instance.js"></script>
+
+<form name="formBlock" id="add_instance">
+  <div class="mb-3">
+    <label for="disabledSelect" class="form-label">select a type</label>
+    <select name="type_of_alcohol_id" id="disabledSelect" class="form-select">
+      {{#each type_of_alcohol}}
+      <option id={{id}} value={{id}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputName" class="form-label">name</label>
+    <input name="name" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputName" class="form-label">strength</label>
+    <input name="strength" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputName" class="form-label">info</label>
+    <input name="info" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,76 @@
+<script defer src="/js/deleteCompPost.js"></script>
+<script defer src="/js/edit_CompPost.js"></script>
+
+{{#if isCompany}}
+<h1>Welcome {{userName}}</h1>
+<div class="mb-3">
+  <label for="exampleInputPassword1" class="form-label">Add a new instance</label>
+  <a href="/add_instance">Add</a>
+</div>
+<div class="content" id="content">
+  <div class="alcohol" id="alcohol">
+    {{#each alcohol}}
+    <div data-id={{id}} value={{id}} class="card">
+      <h2>{{name}}</h2>
+      <div>
+        <li>{{Type_of_alcohol.name}}</li>
+        <li>Крепость: {{strength}}</li>
+        <li>Страна: {{Company.Country.name}}</li>
+        <li>Компания производитель: {{Company.title}}</li>
+        <li>Описание {{info}}</li>
+      </div>
+
+
+      <form id="ediAlcohol" name="ediForm">
+        <select name="type_of_alcohol_id" id="disabledSelect" class="form-select">
+          {{#each ../type}}
+          <option data-id={{id}} value={{this.id}}>{{this.name}}</option>
+          {{/each}}
+        </select>
+        <input name="strength" class="form-control" value="{{strength}}">
+        <input name="info" class="form-control" value="{{info}}">
+        <button type="submit" data-edi={{id}}>EDIT</button>
+      </form>
+
+
+      <button type="click" data-del="true">DELETE</button>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+
+
+{{/if}}
+
+{{#if isBarman}}
+<h1>Welcome {{userName}}</h1>
+<div class="mb-3">
+  <label for="exampleInputPassword1" class="form-label">Add a new coctail</label>
+  <a href="/add_coctail">Add</a>
+</div>
+{{/if}}
+
+
+{{#unless userId}}
+<form name="formBlock" id="authoRegist">
+
+  <div class="transition" method="get">
+    <label for="inputStartAt">authorization</label>
+    <a id="butReg" href="/authorization">authorization</a>
+  </div>
+
+
+  <div class="transition" method="get">
+    <label for="inputStartAt">registration</label>
+    <a id="butReg" href="/registration">registration</a>
+  </div>
+
+
+  <div class="transition" method="get">
+    <label for="inputStartAt">continue without registration</label>
+    <a id="butReg" href="/continue">continue</a>
+  </div>
+
+</form>
+{{/unless}}
